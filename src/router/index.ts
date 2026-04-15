@@ -1,4 +1,4 @@
-import LandingView from '@/modules/hero/views/LandingView.vue'
+import LandingPage from '@/modules/landing/views/LandingPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: LandingView,
+      component: LandingPage,
     },
   ],
 })

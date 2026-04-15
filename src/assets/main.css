@@ -1,2 +1,143 @@
-@import './base.css';
 @import 'tailwindcss';
+
+@theme {
+  /* --- Your Base --- */
+  --color-primary-50: #f0fdfa;
+  --color-primary-100: #ccfbf1;
+  --color-primary-200: #99f6e4;
+  --color-primary-300: #5eead4;
+  --color-primary-400: #2dd4bf;
+  --color-primary-500: #14b8a6;
+  --color-primary-600: #0d9488;
+  --color-primary-700: #0f766e;
+  --color-primary-800: #115e59;
+  --color-primary-900: #134e4a;
+
+  --color-accent-50: #fffbeb;
+  --color-accent-100: #fef3c7;
+  --color-accent-200: #fde68a;
+  --color-accent-300: #fcd34d;
+  --color-accent-400: #fbbf24;
+  --color-accent-500: #f59e0b;
+  --color-accent-600: #d97706;
+  --color-accent-700: #b45309;
+  --color-accent-800: #92400e;
+  --color-accent-900: #78350f;
+
+  --color-neutral-50: #f8fafc;
+  --color-neutral-100: #f1f5f9;
+  --color-neutral-200: #e2e8f0;
+  --color-neutral-400: #94a3b8;
+  --color-neutral-600: #475569;
+  --color-neutral-900: #0f172a;
+
+  --color-error: #ef4444;
+  --color-success: #22c55e;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --radius-lg: 0.75rem;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  :root {
+    --bg: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-subtle: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --border: #e2e8f0;
+  }
+
+  .dark {
+    --bg: #0a0f1e;
+    --bg-surface: #111827;
+    --bg-subtle: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #475569;
+    --border: #1e293b;
+  }
+
+  body {
+    background-color: var(--color-neutral-50);
+    color: var(--color-neutral-600);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-neutral-900);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  /* The "Modern Card" Look */
+  .card {
+    background: white;
+    border: 1px solid var(--color-neutral-200);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-200);
+  }
+
+  /* High-Quality Buttons */
+  .btn-primary {
+    background-color: var(--color-primary-600);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-primary-700);
+    box-shadow: 0 0 0 4px var(--color-primary-100);
+  }
+}
+
+@layer utilities {
+  .bg-app {
+    background-color: var(--bg);
+  }
+  .bg-surface {
+    background-color: var(--bg-surface);
+  }
+  .bg-subtle {
+    background-color: var(--bg-subtle);
+  }
+  .text-app {
+    color: var(--text-primary);
+  }
+  .text-secondary {
+    color: var(--text-secondary);
+  }
+  .text-muted {
+    color: var(--text-muted);
+  }
+  .border-app {
+    border-color: var(--border);
+  }
+}
