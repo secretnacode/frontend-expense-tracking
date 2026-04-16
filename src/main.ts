@@ -4,9 +4,9 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import router from './router'
-import LandingPage from './modules/landing/views/LandingPage.vue'
+import App from './App.vue'
 
-const app = createApp(LandingPage)
+const app = createApp(App)
 
 app.use(createPinia())
 app.use(router)

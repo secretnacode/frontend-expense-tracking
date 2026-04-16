@@ -1,3 +1,5 @@
+import SignInPage from '@/modules/auth/view/SignInPage.vue'
+import SignUpPage from '@/modules/auth/view/SignUpPage.vue'
 import LandingPage from '@/modules/landing/views/LandingPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
@@ -8,6 +10,16 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: LandingPage,
+    },
+    {
+      path: '/sign-in',
+      name: 'sign-in page',
+      component: SignInPage,
+    },
+    {
+      path: '/sign-up',
+      name: 'sign-up page',
+      component: SignUpPage,
     },
   ],
 })

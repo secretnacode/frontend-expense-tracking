@@ -31,7 +31,7 @@ const features = [
 </script>
 
 <template>
-  <section class="py-24 px-6 text-neutral-100">
+  <section id="features" class="py-24 px-6 text-neutral-100">
     <div class="max-w-7xl mx-auto">
       <header class="text-center mb-20">
         <span
@@ -39,7 +39,7 @@ const features = [
         >
           Next-Gen Accounting
         </span>
-        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-6 text-app">
           Stop manual entry. <span class="text-primary-400">Start growing.</span>
         </h2>
         <p class="text-lg text-neutral-400 max-w-2xl mx-auto leading-relaxed">

@@ -8,7 +8,7 @@ const mobileOpen = ref(false)
 const navLinks = [
   { label: 'Features', href: '#features' },
   { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Pricing', href: '#pricing' },
+  // { label: 'Pricing', href: '#pricing' },
   { label: 'Testimonials', href: '#testimonials' },
 ]
 </script>
@@ -84,11 +84,11 @@ const navLinks = [
               />
             </svg>
           </button>
-          <a
-            href="#"
-            class="text-sm font-medium text-secondary hover:text-app transition-colors no-underline"
-            >Log in</a
-          >
+          <RouterLink
+            :to="{ name: 'sign-in page' }"
+            class="text-sm font-medium text-secondary hover:text-primary-600 transition-colors no-underline"
+            >Log in
+          </RouterLink>
           <a
             href="#"
             class="text-sm font-semibold px-4 py-2 rounded-lg bg-primary-600 hover:bg-primary-700 text-white transition-colors duration-200 no-underline"
