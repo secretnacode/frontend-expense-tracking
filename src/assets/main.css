@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
 @theme {
-  /* --- Your Base --- */
   --color-primary-50: #f0fdfa;
   --color-primary-100: #ccfbf1;
   --color-primary-200: #99f6e4;
@@ -23,20 +22,6 @@
   --color-accent-700: #b45309;
   --color-accent-800: #92400e;
   --color-accent-900: #78350f;
-
-  --color-neutral-50: #f8fafc;
-  --color-neutral-100: #f1f5f9;
-  --color-neutral-200: #e2e8f0;
-  --color-neutral-400: #94a3b8;
-  --color-neutral-600: #475569;
-  --color-neutral-900: #0f172a;
-
-  --color-error: #ef4444;
-  --color-success: #22c55e;
-
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --radius-lg: 0.75rem;
 
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
 }
@@ -71,50 +56,26 @@
   }
 
   body {
-    background-color: var(--color-neutral-50);
-    color: var(--color-neutral-600);
+    background-color: var(--bg);
+    color: var(--text-primary);
     font-family: var(--font-sans);
-    line-height: 1.6;
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: var(--color-neutral-900);
-    font-weight: 700;
-    letter-spacing: -0.025em;
-  }
-
-  /* The "Modern Card" Look */
-  .card {
-    background: white;
-    border: 1px solid var(--color-neutral-200);
-    border-radius: var(--radius-lg);
-    padding: 1.5rem;
+    margin: 0;
+    min-width: 320px;
     transition:
-      transform 0.2s ease,
-      box-shadow 0.2s ease;
+      background-color 0.3s ease,
+      color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--color-primary-200);
+  #app {
+    max-width: 100%;
+    padding: 0;
+    text-align: left;
   }
 
-  /* High-Quality Buttons */
-  .btn-primary {
-    background-color: var(--color-primary-600);
-    color: white;
-    padding: 0.5rem 1.25rem;
-    border-radius: 0.5rem;
-    font-weight: 500;
-    transition: all 0.2s;
-  }
-
-  .btn-primary:hover {
-    background-color: var(--color-primary-700);
-    box-shadow: 0 0 0 4px var(--color-primary-100);
+  .form-error {
+    @apply bg-red-50! dark:bg-red-900/20! border-red-200! dark:border-red-800! focus:ring-red-200! dark:focus:ring-red-800! focus:ring-1!;
   }
 }
 

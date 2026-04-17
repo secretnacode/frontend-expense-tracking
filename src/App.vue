@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import { useTheme } from './shared/composables/useTheme'
+
+useTheme()
 </script>
 
 <template>
-  <div class="min-h-screen min-w-screen">
-    <RouterView />
-  </div>
+  <RouterView />
 </template>
