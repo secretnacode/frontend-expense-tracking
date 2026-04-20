@@ -1,25 +1,10 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import type { SignUpForm, SignUpFormError } from '../types'
 import FormInput from '@/shared/components/FormInput.vue'
-import { Eye, EyeClosed } from '@lucide/vue'
-import BaseInput from '@/shared/components/BaseInput.vue'
-import FormErrorMessage from '@/shared/components/FormErrorMessage.vue'
+import { useSignIn } from '../composables/useSignIn'
+import FormPassWithLabel from '../components/FormPassWithLabel.vue'
 
-const form = reactive<SignUpForm>({
-  email: '',
-  password: '',
-  rememberMe: false,
-})
-
-const sampleError = reactive<SignUpFormError>({})
-
-const showPass = ref<boolean>(false)
-
-const passError = computed(() => sampleError.password && sampleError.password.length > 0)
-
-const toggleShowPass = () => (showPass.value = !showPass.value)
+const { form, error } = useSignIn()
 </script>
 
 <template>
@@ -28,19 +13,7 @@ const toggleShowPass = () => (showPass.value = !showPass.value)
       <div class="text-center mb-8">
         <a href="/" class="inline-flex items-center gap-2 mb-8 no-underline">
           <div class="w-10 h-10 rounded-lg bg-primary-600 flex items-center justify-center">
-            <svg
-              class="w-6 h-6 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-            </svg>
+            <FileText class="size-6" />
           </div>
           <span class="text-xl font-bold text-app">ReceiptIQ</span>
         </a>
@@ -55,42 +28,19 @@ const toggleShowPass = () => (showPass.value = !showPass.value)
             label="Email Address"
             type="email"
             placeholder="you@company.com"
-            :error="sampleError.email"
+            :error="error.email"
           />
 
-          <div>
-            <div>
-              <div class="flex items-center justify-between mb-1.5">
-                <label for="password" class="block text-sm font-medium text-app">Password</label>
-                <a
-                  href="#"
-                  class="text-xs font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors no-underline"
-                >
-                  Forgot password?
-                </a>
-              </div>
-              <div class="relative">
-                <BaseInput
-                  v-model="form.password"
-                  placeholder="1234password"
-                  :type="[showPass ? 'text' : 'password']"
-                  :class="[passError ? 'form-error' : '']"
-                />
-                <button
-                  type="button"
-                  class="absolute right-3 top-1/2 -translate-y-1/2 text-muted hover:text-secondary transition-colors border-0 bg-transparent cursor-pointer"
-                  @click="toggleShowPass"
-                >
-                  <Eye v-if="showPass" class="size-5" />
-                  <EyeClosed v-else class="size-5" />
-                </button>
-              </div>
-
-              <div v-if="passError">
-                <FormErrorMessage :messages="sampleError.password" />
-              </div>
-            </div>
-          </div>
+          <FormPassWithLabel :error="error.password" label="Password" v-model="form.password">
+            <template #additional_label
+              ><a
+                href="#"
+                class="text-xs font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 transition-colors no-underline"
+              >
+                Forgot password?
+              </a>
+            </template>
+          </FormPassWithLabel>
 
           <div class="flex items-center gap-2">
             <input
